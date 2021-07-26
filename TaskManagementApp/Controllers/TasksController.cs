@@ -43,6 +43,18 @@ namespace TaskManagementApp.Controllers
             return View(task);
         }
 
+        // GET: Tasks/ShowSearchForm
+        public IActionResult ShowSearchForm()
+        {
+            return View();
+        }
+
+        // POST: Tasks/ShowSearchResults
+        public async Task<IActionResult> ShowSearchResults(String SearchPhrase)
+        {
+            return View("Index", await _context.Task.Where( t => t.TaskDescription.Contains(SearchPhrase)).ToListAsync());
+        }
+
         // GET: Tasks/Create
         public IActionResult Create()
         {
