@@ -71,7 +71,7 @@ namespace TaskManagementApp.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,TaskDescription,Status")] Models.Task task)
+        public async Task<IActionResult> Create([Bind("Id,TaskDescription,Status,UserId")] Models.Task task)
         {
             var user = _userManager.FindByNameAsync(User.Identity.Name).Result;
             task.UserId = user.Id;
