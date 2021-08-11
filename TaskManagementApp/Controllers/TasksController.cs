@@ -55,7 +55,7 @@ namespace TaskManagementApp.Controllers
         // POST: Tasks/ShowSearchResults
         public async Task<IActionResult> ShowSearchResults(String SearchPhrase)
         {
-            return View("Index", await _context.Task.Where(t => t.TaskDescription.Contains(SearchPhrase, StringComparison.CurrentCultureIgnoreCase)).ToListAsync());
+            return View("Index", await _context.Task.Where(t => t.TaskDescription.Contains(SearchPhrase)).ToListAsync());
         }
 
         // GET: Tasks/Create
